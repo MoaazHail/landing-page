@@ -1,0 +1,72 @@
+{
+  "Brand": {
+    "name": "WAJHA",
+    "latin": "WAJHA",
+    "tagline": "A digital front that opens doors for you."
+  },
+  "Nav": {
+    "label": "Main navigation",
+    "home": "Home",
+    "why": "Why WAJHA",
+    "work": "Our Work",
+    "pricing": "Packages & Pricing",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLocale": "العربية",
+    "switchLocaleLabel": "التبديل إلى العربية",
+    "skipToContent": "Skip to content"
+  },
+  "Hero": {
+    "eyebrow": "Website + company profile",
+    "title": "Your clients judge you\nbefore they call you.",
+    "subtitle": "A website and company profile with one identity that settles the decision to work with you at first glance.",
+    "primaryCta": "Start Your Project",
+    "secondaryCta": "View Our Work"
+  },
+  "Pricing": {
+    "currency": "SAR",
+    "only": "only",
+    "includes": "Package includes",
+    "previousPrice": "Previous price"
+  },
+  "Portfolio": {
+    "next": "Next",
+    "previous": "Previous",
+    "visit": "Visit website"
+  },
+  "Footer": {
+    "quickLinks": "Quick Links",
+    "contact": "Contact Us",
+    "services": "Services",
+    "serviceLinks": {
+      "websites": "Website Design",
+      "profiles": "Company Profile Design",
+      "identity": "Digital Identity",
+      "support": "Technical Support"
+    },
+    "rights": "© {year} {brand}. All rights reserved.",
+    "social": {
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "instagram": "Instagram"
+    }
+  },
+  "BackToTop": {
+    "label": "Back to top"
+  },
+  "Metadata": {
+    "title": "WAJHA | Professional Websites & Company Profiles",
+    "description": "We design a professional website and company profile under one identity, built to reflect your brand and earn your clients' trust."
+  },
+  "Errors": {
+    "title": "Something went wrong",
+    "description": "Sorry, we couldn't load this page right now. Please try again in a moment.",
+    "retry": "Try again",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "The link you followed may be broken or the page may have moved.",
+    "backHome": "Back to home"
+  }
+}

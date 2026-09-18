@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/*
+ * WAJHA design tokens — extracted from the reference design and constrained
+ * to the approved brand palette. Muted text tones are the navy token at
+ * reduced opacity rather than new colors.
+ */
+@theme {
+  /* Palette */
+  --color-white: #ffffff;
+  --color-surface: #f2f5ff;
+  --color-line: #c9d6fb;
+  --color-sky: #8fb4ff;
+  --color-accent: #fa5c39;
+  --color-primary: #0d56f2;
+  --color-primary-hover: #1c5cf5;
+  --color-primary-light: #3b77fa;
+  --color-ink: #16243b;
+  --color-night: #0b1524;
+  --color-glass: #ffffff0a;
+  --color-veil: #7f7f7f14;
+  --color-scrim: #000000a6;
+
+  /* Semantic text tones */
+  --color-muted: rgb(22 36 59 / 0.7);
+  --color-subtle: rgb(22 36 59 / 0.52);
+  --color-faint: rgb(22 36 59 / 0.34);
+
+  /* Typography */
+  --font-sans: var(--font-plex-arabic), var(--font-readex), sans-serif;
+  --font-display: var(--font-readex), var(--font-plex-arabic), sans-serif;
+  --font-mono: var(--font-plex-mono), var(--font-plex-arabic), monospace;
+
+  --text-display: clamp(34px, 4.4vw, 62px);
+  --text-display--line-height: 1.45;
+  --text-h2: clamp(23px, 2.6vw, 34px);
+  --text-h2--line-height: 1.25;
+  --text-h3: clamp(18px, 1.6vw, 23px);
+  --text-h3--line-height: 1.4;
+  --text-lead: 15.5px;
+
+  /* Layout */
+  --container-content: 1240px;
+  --spacing-gutter: clamp(20px, 5vw, 72px);
+  --spacing-section: clamp(48px, 5.4vw, 84px);
+  --spacing-stack: clamp(26px, 3.2vw, 44px);
+  --spacing-header: 84px;
+
+  /* Radius */
+  --radius-btn: 6px;
+  --radius-tile: 8px;
+  --radius-icon: 9px;
+  --radius-card: 14px;
+  --radius-panel: 16px;
+
+  /* Elevation */
+  --shadow-card: 0 14px 34px rgb(13 86 242 / 0.06);
+  --shadow-step: 0 10px 26px rgb(13 86 242 / 0.09);
+  --shadow-badge: 0 18px 44px rgb(11 21 36 / 0.34);
+  --shadow-avatar: 0 6px 16px rgb(11 21 36 / 0.3);
+  --shadow-float: 0 10px 24px rgb(11 21 36 / 0.32);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-draw: cubic-bezier(0.65, 0, 0.35, 1);
+  --animate-rise: rise 620ms var(--ease-out-soft) 260ms both;
+  --animate-draw: draw 520ms var(--ease-draw) both;
+  --animate-fold: fold 200ms var(--ease-out-soft) 520ms both;
+  --animate-accordion-down: accordion-down 240ms var(--ease-out-soft);
+  --animate-accordion-up: accordion-up 200ms var(--ease-out-soft);
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes draw {
+    from { clip-path: inset(0 0 0 100%); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  @keyframes fold {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+/* The clipped top-corner echoes the folded corner of the logo mark. */
+@utility clip-corner {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+@utility section-x {
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  [id] {
+    scroll-margin-top: 24px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
