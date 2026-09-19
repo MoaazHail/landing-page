@@ -1,4 +1,26 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+/**
+ * Public origin used for canonical URLs, the sitemap and Open Graph.
+ * Tolerates an empty variable or a bare host (`wajha.sa`), and falls back to
+ * the production domain Vercel exposes, then to localhost.
+ */
+function resolveSiteUrl() {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ];
+
+  for (const raw of candidates) {
+    const value = raw?.trim();
+    if (!value) continue;
+    const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+    if (URL.canParse(withProtocol)) return new URL(withProtocol).origin;
+  }
+
+  return "http://localhost:3000";
+}
+
+export const SITE_URL = resolveSiteUrl();
 
 export const CONTENT_REVALIDATE_SECONDS = 300;
 export const API_TIMEOUT_MS = 8000;
